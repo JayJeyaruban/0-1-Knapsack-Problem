@@ -19,8 +19,11 @@ def knapsack(N, values, weights, max_weight):
 
     for i in range(N):
         for j in range(max_weight + 1):
+            tangent_value = 0
             if sorted_weights[i] <= j:
-                table[i][j] = max(table[i - 1][j], sorted_values[i] + table[i - 1][j - sorted_weights[i]])
+                tangent_value = sorted_values[i] + table[i-1][j - sorted_weights[i]]
+
+            table[i][j] = max(table[i - 1][j], tangent_value)
 
     print "Max value =", table[N - 1][max_weight]
 
