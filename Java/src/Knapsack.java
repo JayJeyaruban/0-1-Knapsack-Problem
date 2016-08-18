@@ -52,13 +52,6 @@ public class Knapsack {
 					if (i > 0)
 						tangent += table[i - 1][j - weights[i]];
 				}
-//				if (weights[i] <= j) {
-//					tangent = values[i];
-//					if (i > 0) {
-//						above = table[i - 1][j];
-//						tangent += table[i - 1][j - weights[i]];
-//					}
-//				}
 				table[i][j] = max(above, tangent);
 			}
 		}
