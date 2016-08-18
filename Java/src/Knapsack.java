@@ -22,7 +22,7 @@ public class Knapsack {
 		}
 	}
 
-	public void sortItems() {
+	private void sortItems() {
 		for (int j = 1; j < N; j++) {
 			for (int i = 1; i < N; i++) {
 				if (weights[i] < weights[i - 1]) {
