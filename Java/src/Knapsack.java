@@ -44,13 +44,21 @@ public class Knapsack {
 			for (int j = 0; j <= maxWeight; j++) {
 				int above = 0;
 				int tangent = 0;
+				if (i > 0) {
+					above = table[i - 1][j];
+				}
 				if (weights[i] <= j) {
 					tangent = values[i];
-					if (i > 0) {
-						above = table[i - 1][j];
+					if (i > 0)
 						tangent += table[i - 1][j - weights[i]];
-					}
 				}
+//				if (weights[i] <= j) {
+//					tangent = values[i];
+//					if (i > 0) {
+//						above = table[i - 1][j];
+//						tangent += table[i - 1][j - weights[i]];
+//					}
+//				}
 				table[i][j] = max(above, tangent);
 			}
 		}
